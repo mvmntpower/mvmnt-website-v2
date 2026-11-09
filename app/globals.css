@@ -30,3 +30,11 @@ html {
   scroll-padding-top: 120px;
 }
 
+/* MVMNT Interactive Cursor Styling */
+
+button,
+a,
+[role="button"],
+[onclick] {
+  cursor: pointer;
+}
