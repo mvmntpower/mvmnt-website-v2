@@ -1,24 +1,32 @@
+
+import {
+  ShieldCheck,
+  Hammer,
+  CalendarCheck,
+  Handshake,
+} from "lucide-react";
+
 export default function WhyChooseUs() {
   const items = [
     {
       title: "Licensed & Insured",
       text: "Your home is protected from start to finish.",
-      icon: "🛡️",
+      Icon: ShieldCheck,
     },
     {
       title: "Premium Craftsmanship",
       text: "Quality workmanship with attention to every detail.",
-      icon: "🏆",
+      Icon: Hammer,
     },
     {
       title: "On-Time & On Budget",
       text: "Reliable scheduling and transparent communication.",
-      icon: "📅",
+      Icon: CalendarCheck,
     },
     {
       title: "Customer First",
       text: "We treat every home like it's our own.",
-      icon: "🤝",
+      Icon: Handshake,
     },
   ];
 
@@ -36,31 +44,34 @@ export default function WhyChooseUs() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-          {items.map((item) => (
+          {items.map((item) => {
+            const Icon = item.Icon;
 
-            <div
-              key={item.title}
-              className="bg-zinc-900 rounded-3xl p-8 text-center hover:-translate-y-2 hover:shadow-2xl transition duration-300"
-            >
+            return (
+              <div
+                key={item.title}
+                className="bg-zinc-900 rounded-3xl p-8 text-center hover:-translate-y-2 hover:shadow-2xl transition duration-300"
+              >
+                <div className="flex justify-center mb-6">
+                  <Icon
+                    size={42}
+                    strokeWidth={1.6}
+                    className="text-yellow-400"
+                  />
+                </div>
 
-              <div className="text-5xl mb-6">
-                {item.icon}
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {item.title}
+                </h3>
+
+                <p className="text-zinc-400">
+                  {item.text}
+                </p>
               </div>
-
-              <h3 className="text-2xl font-bold text-white mb-4">
-                {item.title}
-              </h3>
-
-              <p className="text-zinc-400">
-                {item.text}
-              </p>
-
-            </div>
-
-          ))}
+            );
+          })}
 
         </div>
-
       </div>
     </section>
   );
